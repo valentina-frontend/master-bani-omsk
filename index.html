@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Мастер Бань — бани и сауны в Омске</title>
-  <meta name="description" content="Бани и сауны в Омске: реальные работы компании «Мастер Бань» — парные с отделкой деревом, декором из спилов, атмосферной подсветкой и панорамными окнами.">
+  <title>Мастер Бань — отделка бань и саун под ключ в Омске и области</title>
+  <meta name="description" content="Отделка бань и саун под ключ в Омске и области. Опыт более 10 лет, работа по договору, гарантия 2 года. От 140 000 ₽, от 14 дней. Панно и декор из натурального можжевельника.">
+  <link rel="icon" href="img/logo-master-ban.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,6 +16,7 @@
       --card: #241c15;
       --amber: #e8a33d;
       --amber-soft: #f3c274;
+      --green: #9ac54a;
       --text: #f2e9dd;
       --muted: #b5a591;
       --radius: 18px;
@@ -31,6 +33,7 @@
       font-family: var(--font-body);
       font-size: 17px;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     img { display: block; max-width: 100%; }
@@ -39,7 +42,7 @@
 
     h1, h2, h3 { font-family: var(--font-head); line-height: 1.2; }
 
-    section { padding: 90px 0; }
+    section { padding: 88px 0; }
 
     .section-tag {
       display: inline-block;
@@ -52,53 +55,18 @@
     }
 
     .section-title { font-size: clamp(26px, 4vw, 40px); font-weight: 600; margin-bottom: 18px; }
-    .section-sub { color: var(--muted); max-width: 640px; margin-bottom: 48px; }
+    .section-sub { color: var(--muted); max-width: 680px; margin-bottom: 46px; }
 
-    /* ---------- Шапка ---------- */
-    header {
-      position: fixed;
-      inset: 0 0 auto 0;
-      z-index: 50;
-      background: rgba(20, 16, 12, .82);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(232, 163, 61, .12);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 0;
-      gap: 24px;
-    }
-
-    .logo {
-      font-family: var(--font-head);
-      font-weight: 700;
-      font-size: 19px;
-      color: var(--text);
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .logo span { color: var(--amber); }
-
-    nav { display: flex; gap: 28px; }
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      transition: color .2s;
-    }
-    nav a:hover { color: var(--amber-soft); }
-
+    /* ---------- Кнопки ---------- */
     .btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
       background: var(--amber);
       color: #201607;
       font-weight: 700;
       text-decoration: none;
-      padding: 14px 30px;
+      padding: 15px 32px;
       border-radius: 999px;
       transition: transform .2s, box-shadow .2s;
       border: none;
@@ -115,239 +83,308 @@
     }
     .btn-outline:hover { box-shadow: none; border-color: var(--amber); color: var(--amber-soft); }
 
+    .btn-green { background: var(--green); color: #17250a; }
+    .btn-green:hover { box-shadow: 0 10px 30px rgba(154, 197, 74, .35); }
+
+    /* ---------- Шапка ---------- */
+    header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 50;
+      background: rgba(20, 16, 12, .82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(232, 163, 61, .12);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      gap: 24px;
+    }
+
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; white-space: nowrap; }
+    .logo img { width: 46px; height: 46px; border-radius: 50%; }
+    .logo b { font-family: var(--font-head); font-weight: 700; font-size: 18px; color: var(--text); }
+    .logo b span { color: var(--amber); }
+
+    nav { display: flex; gap: 26px; }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: color .2s;
+    }
+    nav a:hover { color: var(--amber-soft); }
+
+    .header-phone { display: flex; align-items: center; gap: 14px; }
+    .header-phone a.phone { color: var(--text); font-weight: 700; text-decoration: none; font-size: 15px; }
+    .header-phone a.phone:hover { color: var(--amber-soft); }
     .header-btn { padding: 11px 22px; font-size: 14px; }
 
-    .burger {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      flex-direction: column;
-      gap: 5px;
-      padding: 6px;
-    }
+    .burger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 6px; }
     .burger span { width: 26px; height: 2px; background: var(--text); border-radius: 2px; }
 
-    /* ---------- Первый экран ---------- */
+    /* ---------- 1. Первый экран ---------- */
     .hero {
+      position: relative;
       min-height: 100svh;
       display: flex;
       align-items: center;
-      position: relative;
-      padding: 140px 0 80px;
-      background:
-        linear-gradient(100deg, rgba(20, 16, 12, .92) 20%, rgba(20, 16, 12, .45) 60%, rgba(20, 16, 12, .25)),
-        url('img/hero-mountains.jpg') center / cover no-repeat;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: auto 0 0 0;
-      height: 140px;
-      background: linear-gradient(to top, var(--bg), transparent);
-    }
-
-    .hero-content { position: relative; z-index: 1; max-width: 640px; }
-
-    .hero h1 {
-      font-size: clamp(30px, 5vw, 52px);
-      font-weight: 700;
-      margin-bottom: 22px;
-    }
-    .hero h1 em { font-style: normal; color: var(--amber); }
-
-    .hero p { color: #d8ccbb; font-size: clamp(16px, 2vw, 19px); margin-bottom: 36px; max-width: 520px; }
-
-    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-
-    .hero-note {
-      margin-top: 46px;
-      display: flex;
-      gap: 34px;
-      flex-wrap: wrap;
-    }
-    .hero-note div strong {
-      display: block;
-      font-family: var(--font-head);
-      font-size: 24px;
-      color: var(--amber-soft);
-    }
-    .hero-note div small { color: var(--muted); font-size: 14px; }
-
-    /* ---------- Преимущества ---------- */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 22px;
-    }
-
-    .feature {
-      background: var(--card);
-      border: 1px solid rgba(232, 163, 61, .1);
-      border-radius: var(--radius);
-      padding: 30px 26px;
-      transition: transform .25s, border-color .25s;
-    }
-    .feature:hover { transform: translateY(-4px); border-color: rgba(232, 163, 61, .4); }
-
-    .feature .icon {
-      width: 52px; height: 52px;
-      border-radius: 14px;
-      background: rgba(232, 163, 61, .14);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 26px;
-      margin-bottom: 18px;
-    }
-    .feature h3 { font-size: 17px; font-weight: 600; margin-bottom: 10px; }
-    .feature p { color: var(--muted); font-size: 15px; }
-
-    /* ---------- Услуги ---------- */
-    .services { background: var(--bg-soft); }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 22px;
-    }
-
-    .service {
-      position: relative;
-      border-radius: var(--radius);
+      padding: 130px 0 80px;
       overflow: hidden;
-      min-height: 340px;
-      display: flex;
-      align-items: flex-end;
-      isolation: isolate;
     }
-    .service img {
+    .hero-media, .hero video, .hero .hero-fallback {
       position: absolute; inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
-      z-index: -1;
-      transition: transform .5s;
+      z-index: -2;
     }
-    .service:hover img { transform: scale(1.06); }
-    .service::before {
+    .hero .hero-fallback { background: url('img/hero-mountains.jpg') center/cover no-repeat; }
+    .hero::before {
       content: '';
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(15, 11, 7, .92) 10%, rgba(15, 11, 7, .1) 60%);
+      background: linear-gradient(100deg, rgba(20,16,12,.94) 22%, rgba(20,16,12,.55) 62%, rgba(20,16,12,.3));
       z-index: -1;
     }
-    .service-body { padding: 26px; }
-    .service h3 { font-size: 19px; font-weight: 600; margin-bottom: 8px; }
-    .service p { color: #cfc2af; font-size: 15px; }
-
-    /* ---------- Галерея ---------- */
-    .gallery-grid { columns: 3; column-gap: 18px; }
-    .gallery-grid a {
-      display: block;
-      margin-bottom: 18px;
-      border-radius: 14px;
-      overflow: hidden;
-      cursor: zoom-in;
+    .hero::after {
+      content: '';
+      position: absolute; inset: auto 0 0 0; height: 130px;
+      background: linear-gradient(to top, var(--bg), transparent);
     }
+
+    .hero-content { max-width: 720px; }
+    .hero h1 { font-size: clamp(28px, 4.6vw, 50px); font-weight: 700; margin-bottom: 22px; }
+    .hero h1 em { font-style: normal; color: var(--amber); }
+    .hero .lead { color: #e4d9c8; font-size: clamp(16px, 2vw, 19px); margin-bottom: 30px; max-width: 560px; }
+
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+    .hero-badges span {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(36, 28, 21, .7);
+      border: 1px solid rgba(232, 163, 61, .28);
+      padding: 9px 16px; border-radius: 999px;
+      font-size: 14px; font-weight: 600; color: var(--amber-soft);
+    }
+
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* ---------- 2. Услуги (карточки-якоря) ---------- */
+    .services { background: var(--bg-soft); }
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 34px; }
+    .service {
+      position: relative; border-radius: var(--radius); overflow: hidden;
+      min-height: 380px; display: flex; align-items: flex-end; isolation: isolate;
+      text-decoration: none; color: var(--text);
+    }
+    .service img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; transition: transform .5s; }
+    .service:hover img { transform: scale(1.06); }
+    .service::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(12,9,5,.95) 12%, rgba(12,9,5,.15) 62%); z-index: -1;
+    }
+    .service-body { padding: 30px; }
+    .service-body .num { font-family: var(--font-head); color: var(--amber); font-size: 14px; letter-spacing: 2px; }
+    .service h3 { font-size: 22px; font-weight: 600; margin: 8px 0 10px; }
+    .service p { color: #d4c7b4; font-size: 15px; }
+    .service .go { margin-top: 16px; display: inline-flex; align-items: center; gap: 8px; color: var(--amber-soft); font-weight: 700; font-size: 15px; }
+    .services .center { text-align: center; }
+
+    /* ---------- 3. Отделка под ключ (подробно) ---------- */
+    .detail-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 46px; align-items: start; }
+    .checklist { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 26px; }
+    .checklist li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: #e4d9c8; }
+    .checklist li::before {
+      content: '✓'; flex: none; width: 24px; height: 24px; border-radius: 7px;
+      background: rgba(232,163,61,.16); color: var(--amber);
+      display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; margin-top: 2px;
+    }
+    .figures { display: grid; gap: 16px; }
+    .figure {
+      background: var(--card); border: 1px solid rgba(232,163,61,.14);
+      border-radius: var(--radius); padding: 22px 24px;
+    }
+    .figure b { display: block; font-family: var(--font-head); font-size: 30px; color: var(--amber-soft); line-height: 1; margin-bottom: 6px; }
+    .figure small { color: var(--muted); font-size: 14px; }
+    .offer {
+      grid-column: 1 / -1; margin-top: 12px;
+      background: linear-gradient(100deg, rgba(232,163,61,.16), rgba(232,163,61,.04));
+      border: 1px dashed rgba(232,163,61,.5); border-radius: var(--radius);
+      padding: 22px 26px; display: flex; gap: 16px; align-items: center;
+    }
+    .offer .gift { font-size: 30px; flex: none; }
+    .offer p { font-size: 15px; color: #e9dece; }
+    .offer p b { color: var(--amber-soft); }
+
+    /* ---------- 4. Почему доверяют ---------- */
+    .trust { background: var(--bg-soft); }
+    .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .trust-card {
+      background: var(--card); border: 1px solid rgba(232,163,61,.1);
+      border-radius: var(--radius); padding: 28px 26px; transition: transform .25s, border-color .25s;
+    }
+    .trust-card:hover { transform: translateY(-4px); border-color: rgba(232,163,61,.4); }
+    .trust-card .icon {
+      width: 50px; height: 50px; border-radius: 13px; background: rgba(232,163,61,.14);
+      display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 16px;
+    }
+    .trust-card p { font-size: 15px; color: #e4d9c8; }
+    .trust-card p b { color: var(--text); }
+
+    /* ---------- 5. Можжевельник ---------- */
+    .juniper .section-tag { color: var(--green); }
+    .juniper-top { display: grid; grid-template-columns: 1fr 1fr; gap: 46px; align-items: center; margin-bottom: 50px; }
+    .juniper-facts { list-style: none; display: grid; gap: 16px; }
+    .juniper-facts li { display: flex; gap: 14px; align-items: flex-start; }
+    .juniper-facts .ic {
+      flex: none; width: 40px; height: 40px; border-radius: 11px; background: rgba(154,197,74,.15);
+      display: flex; align-items: center; justify-content: center; font-size: 20px;
+    }
+    .juniper-facts b { color: var(--text); display: block; }
+    .juniper-facts span { color: var(--muted); font-size: 14px; }
+    .juniper-photo { border-radius: var(--radius); overflow: hidden; }
+    .juniper-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    .panels-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; margin-bottom: 44px; }
+    .panel {
+      background: #f4efe6; border-radius: 14px; overflow: hidden; cursor: zoom-in;
+      display: flex; flex-direction: column;
+    }
+    .panel img { width: 100%; aspect-ratio: 1/1; object-fit: contain; padding: 10px; transition: transform .4s; }
+    .panel:hover img { transform: scale(1.05); }
+    .panel span { text-align: center; padding: 4px 8px 12px; font-size: 13px; color: #4a3d2c; font-weight: 600; }
+
+    .offer-line { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .juniper-what h3 { font-size: 18px; margin-bottom: 14px; }
+    .juniper-what ul { list-style: none; display: grid; gap: 10px; }
+    .juniper-what li { display: flex; gap: 10px; font-size: 15px; color: #e4d9c8; }
+    .juniper-what li::before { content: '›'; color: var(--green); font-weight: 700; }
+    .tech {
+      background: var(--card); border: 1px solid rgba(154,197,74,.18); border-radius: var(--radius); padding: 28px;
+    }
+    .tech h3 { font-size: 18px; margin-bottom: 16px; }
+    .tech ul { list-style: none; display: grid; gap: 12px; }
+    .tech li { display: flex; gap: 12px; font-size: 15px; color: #e4d9c8; align-items: flex-start; }
+    .tech li::before { content: '◆'; color: var(--green); font-size: 12px; margin-top: 4px; }
+    .note-important {
+      margin-top: 34px; text-align: center; color: var(--amber-soft); font-weight: 600;
+      grid-column: 1 / -1;
+    }
+
+    /* ---------- Портфолио ---------- */
+    .gallery-grid { columns: 3; column-gap: 16px; }
+    .gallery-grid a { display: block; margin-bottom: 16px; border-radius: 14px; overflow: hidden; cursor: zoom-in; }
     .gallery-grid img { width: 100%; transition: transform .4s, filter .4s; }
     .gallery-grid a:hover img { transform: scale(1.04); filter: brightness(1.1); }
 
-    /* ---------- Контакты ---------- */
+    /* ---------- 6. Этапы ---------- */
+    .steps { background: var(--bg-soft); }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; counter-reset: step; }
+    .step { background: var(--card); border-radius: var(--radius); padding: 28px 24px; border: 1px solid rgba(232,163,61,.1); }
+    .step::before {
+      counter-increment: step; content: '0' counter(step);
+      font-family: var(--font-head); font-size: 32px; font-weight: 700; color: var(--amber);
+      display: block; margin-bottom: 12px;
+    }
+    .step h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+    .step p { color: var(--muted); font-size: 14px; }
+
+    /* ---------- 7. Отзывы ---------- */
+    .reviews-quote { font-family: var(--font-head); font-size: clamp(22px, 3.4vw, 34px); font-weight: 600; text-align: center; max-width: 800px; margin: 0 auto 44px; }
+    .reviews-quote span { color: var(--amber); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .review-ph {
+      background: var(--card); border: 1px dashed rgba(232,163,61,.3); border-radius: var(--radius);
+      padding: 26px; min-height: 180px; display: flex; flex-direction: column; justify-content: center; gap: 10px;
+    }
+    .review-ph .stars { color: var(--amber); font-size: 18px; letter-spacing: 2px; }
+    .review-ph p { color: var(--muted); font-size: 14px; }
+    .review-ph small { color: #6f6353; font-size: 12px; margin-top: auto; }
+
+    /* ---------- 8. Контакты ---------- */
     .contact-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-      background: var(--card);
-      border: 1px solid rgba(232, 163, 61, .15);
-      border-radius: 24px;
-      overflow: hidden;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 46px; align-items: start;
     }
-
-    .contact-info { padding: 50px; }
-    .contact-info .section-title { margin-bottom: 14px; }
-    .contact-info p { color: var(--muted); margin-bottom: 28px; }
-
-    .contact-list { list-style: none; margin-bottom: 34px; }
-    .contact-list li {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 16px;
-      font-weight: 600;
-    }
+    .contact-info .contact-list { list-style: none; margin: 26px 0 30px; }
+    .contact-list li { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; font-weight: 600; }
     .contact-list .icon {
-      width: 42px; height: 42px;
-      flex: none;
-      border-radius: 12px;
-      background: rgba(232, 163, 61, .14);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px;
+      width: 44px; height: 44px; flex: none; border-radius: 12px; background: rgba(232,163,61,.14);
+      display: flex; align-items: center; justify-content: center; font-size: 20px;
     }
     .contact-list a { color: var(--text); text-decoration: none; }
     .contact-list a:hover { color: var(--amber-soft); }
+    .contact-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
-    .contact-photo { height: 100%; min-height: 420px; }
-    .contact-photo img { width: 100%; height: 100%; object-fit: cover; }
+    form.lead-form {
+      background: var(--card); border: 1px solid rgba(232,163,61,.15);
+      border-radius: 22px; padding: 34px;
+    }
+    form.lead-form h3 { font-size: 20px; margin-bottom: 8px; }
+    form.lead-form .fp { color: var(--muted); font-size: 14px; margin-bottom: 22px; }
+    .field { margin-bottom: 16px; }
+    .field label { display: block; font-size: 14px; color: var(--muted); margin-bottom: 7px; font-weight: 600; }
+    .field input {
+      width: 100%; background: var(--bg-soft); border: 1px solid rgba(232,163,61,.2); color: var(--text);
+      padding: 13px 16px; border-radius: 11px; font-size: 15px; font-family: var(--font-body);
+    }
+    .field input:focus { outline: none; border-color: var(--amber); }
+    .choice { display: flex; gap: 12px; flex-wrap: wrap; }
+    .choice label {
+      flex: 1; min-width: 130px; cursor: pointer; margin: 0;
+      background: var(--bg-soft); border: 1px solid rgba(232,163,61,.2); border-radius: 11px;
+      padding: 12px 14px; text-align: center; color: var(--text); font-size: 14px; transition: .2s;
+    }
+    .choice input { position: absolute; opacity: 0; }
+    .choice input:checked + span { color: var(--amber-soft); }
+    .choice label:has(input:checked) { border-color: var(--amber); background: rgba(232,163,61,.12); }
+    form.lead-form .btn { width: 100%; justify-content: center; margin-top: 6px; }
+    .form-ok { display: none; color: var(--green); font-weight: 600; margin-top: 14px; text-align: center; }
+    .form-ok.show { display: block; }
+    .privacy { color: #6f6353; font-size: 12px; text-align: center; margin-top: 14px; }
 
-    footer {
-      padding: 28px 0 36px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
+    /* ---------- Футер ---------- */
+    footer { background: var(--bg-soft); padding: 44px 0 40px; border-top: 1px solid rgba(232,163,61,.1); }
+    .footer-inner { display: flex; justify-content: space-between; gap: 26px; flex-wrap: wrap; align-items: center; }
+    .footer-brand { display: flex; align-items: center; gap: 14px; }
+    .footer-brand img { width: 56px; height: 56px; border-radius: 50%; }
+    .footer-brand b { font-family: var(--font-head); font-size: 18px; }
+    .footer-brand b span { color: var(--amber); }
+    .footer-brand p { color: var(--muted); font-size: 14px; }
+    .footer-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .footer-copy { color: #6f6353; font-size: 13px; margin-top: 26px; }
 
     /* ---------- Лайтбокс ---------- */
     .lightbox {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      background: rgba(10, 7, 4, .92);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 4vh 4vw;
-      cursor: zoom-out;
+      position: fixed; inset: 0; z-index: 100; background: rgba(10,7,4,.93);
+      display: none; align-items: center; justify-content: center; padding: 4vh 4vw; cursor: zoom-out;
     }
     .lightbox.open { display: flex; }
-    .lightbox img {
-      max-width: 100%;
-      max-height: 92svh;
-      border-radius: 12px;
-      box-shadow: 0 30px 80px rgba(0, 0, 0, .6);
-    }
+    .lightbox img { max-width: 100%; max-height: 92svh; border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
 
-    /* ---------- Появление при скролле ---------- */
+    /* ---------- Reveal ---------- */
     .reveal { opacity: 0; transform: translateY(26px); transition: opacity .6s, transform .6s; }
     .reveal.visible { opacity: 1; transform: none; }
 
     /* ---------- Адаптив ---------- */
-    @media (max-width: 900px) {
+    @media (max-width: 960px) {
       section { padding: 64px 0; }
+      .services-grid { grid-template-columns: 1fr; }
+      .detail-grid, .juniper-top, .offer-line, .contact-wrap { grid-template-columns: 1fr; gap: 30px; }
       .gallery-grid { columns: 2; }
-      .contact-wrap { grid-template-columns: 1fr; }
-      .contact-photo { min-height: 300px; order: -1; }
-      .contact-info { padding: 34px 28px; }
     }
-
     @media (max-width: 680px) {
-      nav, .header-btn { display: none; }
+      nav, .header-phone .phone, .header-btn { display: none; }
       .burger { display: flex; }
       nav.open {
-        display: flex;
-        position: absolute;
-        top: 100%;
-        left: 0; right: 0;
-        flex-direction: column;
-        gap: 0;
-        background: rgba(20, 16, 12, .97);
-        border-bottom: 1px solid rgba(232, 163, 61, .15);
+        display: flex; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0;
+        background: rgba(20,16,12,.98); border-bottom: 1px solid rgba(232,163,61,.15);
       }
-      nav.open a { padding: 16px 6%; border-top: 1px solid rgba(232, 163, 61, .08); }
+      nav.open a { padding: 15px 6%; border-top: 1px solid rgba(232,163,61,.08); }
+      .checklist { grid-template-columns: 1fr; }
       .gallery-grid { columns: 1; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -355,165 +392,307 @@
 
   <header>
     <div class="container header-inner">
-      <a class="logo" href="#top">МАСТЕР<span>БАНЬ</span></a>
+      <a class="logo" href="#top">
+        <img src="img/logo-master-ban.png" alt="Логотип Мастер Бань">
+        <b>МАСТЕР<span>БАНЬ</span></b>
+      </a>
       <nav id="nav">
-        <a href="#about">О нас</a>
-        <a href="#services">Наши парные</a>
-        <a href="#gallery">Галерея</a>
+        <a href="#services">Услуги</a>
+        <a href="#otdelka">Отделка</a>
+        <a href="#juniper">Можжевельник</a>
+        <a href="#portfolio">Работы</a>
+        <a href="#steps">Этапы</a>
         <a href="#contacts">Контакты</a>
       </nav>
-      <a class="btn header-btn" href="#contacts">Написать нам</a>
-      <button class="burger" id="burger" aria-label="Меню">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="header-phone">
+        <!-- TODO: заменить на реальный номер телефона заказчика -->
+        <a class="phone" href="tel:+79000000000">+7 (900) 000-00-00</a>
+        <a class="btn header-btn" href="#contacts">Бесплатный замер</a>
+      </div>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
     </div>
   </header>
 
-  <!-- Первый экран -->
+  <!-- 1. Первый экран -->
   <section class="hero" id="top">
+    <video class="hero-media" autoplay muted loop playsinline poster="img/hero-mountains.jpg">
+      <source src="img/hero-video.webm" type="video/webm">
+      <source src="img/hero-video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-fallback" aria-hidden="true"></div>
     <div class="container">
       <div class="hero-content">
-        <h1>Бани и сауны <em>в Омске</em></h1>
-        <p>Парные с декором из спилов дерева, мягкой подсветкой и панорамными окнами. Все фотографии на этом сайте — наши реальные работы.</p>
+        <h1>Отделка бани и сауны <em>под ключ</em> в Омске и области</h1>
+        <p class="lead">Персональный подход к каждому объекту: делаю парные, в которых приятно париться и на которые приятно смотреть.</p>
+        <div class="hero-badges">
+          <span>⭐ Опыт более 10 лет</span>
+          <span>📄 Работа по договору</span>
+          <span>🛡️ Гарантия 2 года</span>
+          <span>💰 От 140 000 ₽</span>
+          <span>⏱️ От 14 дней</span>
+        </div>
         <div class="hero-actions">
-          <a class="btn" href="#gallery">Смотреть работы</a>
-          <a class="btn btn-outline" href="#contacts">Связаться с нами</a>
-        </div>
-        <div class="hero-note">
-          <div><strong>Омск</strong><small>и Омская область</small></div>
-          <div><strong>Дерево</strong><small>натуральные материалы</small></div>
-          <div><strong>Дизайн</strong><small>каждая парная уникальна</small></div>
+          <a class="btn" href="#contacts">Рассчитать стоимость</a>
+          <a class="btn btn-outline" href="#contacts">Бесплатный замер</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Преимущества -->
-  <section id="about">
-    <div class="container">
-      <span class="section-tag reveal">Почему мы</span>
-      <h2 class="section-title reveal">Парная — это место силы.<br>Мы делаем его красивым</h2>
-      <p class="section-sub reveal">Здесь нет стоковых картинок: всё, что вы видите на сайте, — реальные парные «Мастер Бань». Рассмотрите фотографии поближе.</p>
-      <div class="features-grid">
-        <div class="feature reveal">
-          <div class="icon">🪵</div>
-          <h3>Натуральное дерево</h3>
-          <p>Стены, полки и потолки из дерева, панно и вставки из спилов — видно на каждой фотографии.</p>
-        </div>
-        <div class="feature reveal">
-          <div class="icon">💡</div>
-          <h3>Атмосферная подсветка</h3>
-          <p>Мягкий тёплый свет, LED-контуры и деревянные светильники — свет, который расслабляет.</p>
-        </div>
-        <div class="feature reveal">
-          <div class="icon">📐</div>
-          <h3>Свой характер</h3>
-          <p>Горы из спилов, каменная стена, окно с видом на озеро — в каждой парной своя идея, двух одинаковых нет.</p>
-        </div>
-        <div class="feature reveal">
-          <div class="icon">✨</div>
-          <h3>Внимание к деталям</h3>
-          <p>Аккуратные примыкания, декоративные решётки, торцы полков из спилов — мелочи, из которых складывается впечатление.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Услуги -->
+  <!-- 2. Услуги -->
   <section class="services" id="services">
     <div class="container">
-      <span class="section-tag reveal">Наши парные</span>
-      <h2 class="section-title reveal">Какими бывают наши парные</h2>
+      <span class="section-tag reveal">Что я делаю</span>
+      <h2 class="section-title reveal">Два направления работы</h2>
       <div class="services-grid">
-        <div class="service reveal">
-          <img src="img/classic-warm.jpg" alt="Классическая парная с отделкой деревом" loading="lazy">
+        <a class="service reveal" href="#otdelka">
+          <img src="img/classic-warm.jpg" alt="Отделанная деревом парная">
           <div class="service-body">
-            <h3>Классика из тёплого дерева</h3>
-            <p>Потолок из спилов, мягкий свет и полки, с которых не хочется вставать.</p>
+            <div class="num">01</div>
+            <h3>Отделка бани и сауны под ключ</h3>
+            <p>Полный цикл — от дизайна до финишной пропитки. Нестандартные задачи любой сложности.</p>
+            <span class="go">Подробнее →</span>
           </div>
+        </a>
+        <a class="service reveal" href="#juniper">
+          <img src="img/panno-led-interior.jpg" alt="Панно из можжевельника с подсветкой">
+          <div class="service-body">
+            <div class="num">02</div>
+            <h3>Панно и декор из можжевельника</h3>
+            <p>Собственная мастерская. Готовые решения и изготовление по индивидуальным размерам.</p>
+            <span class="go">Подробнее →</span>
+          </div>
+        </a>
+      </div>
+      <div class="center reveal">
+        <a class="btn btn-outline" href="#portfolio">Фото работ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Отделка под ключ (подробно) -->
+  <section id="otdelka">
+    <div class="container">
+      <span class="section-tag reveal">Отделка под ключ</span>
+      <h2 class="section-title reveal">От первой консультации до сдачи готового объекта</h2>
+      <div class="detail-grid">
+        <div class="reveal">
+          <h3 style="font-size:18px;margin-bottom:18px;color:var(--amber-soft)">Что входит в отделку</h3>
+          <ul class="checklist">
+            <li>Помощь в дизайне и планировке</li>
+            <li>Расчёт и закуп материалов</li>
+            <li>Сбор каркаса</li>
+            <li>Утепление</li>
+            <li>Монтаж вагонки</li>
+            <li>Установка полко́в</li>
+            <li>Установка двери</li>
+            <li>Установка печи, электрокаменки, портала</li>
+            <li>Электромонтажные работы</li>
+            <li>Обработка древесины защитной пропиткой</li>
+            <li>Реставрационные работы</li>
+          </ul>
         </div>
-        <div class="service reveal">
-          <img src="img/green-led-stone.jpg" alt="Парная с LED-подсветкой и каменной стеной" loading="lazy">
-          <div class="service-body">
-            <h3>Дизайнерские решения</h3>
-            <p>Дерево в сочетании с камнем и цветной подсветкой — интерьер, как в спа-отеле.</p>
-          </div>
+        <div class="figures reveal">
+          <div class="figure"><b>от 140 000 ₽</b><small>стоимость за проект</small></div>
+          <div class="figure"><b>от 14 дней</b><small>срок выполнения работ</small></div>
+          <div class="figure"><b>Омск и область</b><small>территория выезда</small></div>
         </div>
-        <div class="service reveal">
-          <img src="img/lake-window.jpg" alt="Сауна с панорамным окном с видом на озеро" loading="lazy">
-          <div class="service-body">
-            <h3>Парные с видом</h3>
-            <p>Панорамное окно, а за стеклом — озеро. Можно париться и смотреть на воду.</p>
-          </div>
+        <div class="offer reveal">
+          <span class="gift">🎁</span>
+          <p><b>Специальное предложение.</b> При заключении договора на отделку ещё на этапе строительства — бесплатная консультация и сопровождение вплоть до начала отделочных работ.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Галерея -->
-  <section id="gallery">
+  <!-- 4. Почему доверяют -->
+  <section class="trust" id="trust">
+    <div class="container">
+      <span class="section-tag reveal">Обо мне</span>
+      <h2 class="section-title reveal">Почему мне доверяют</h2>
+      <div class="trust-grid">
+        <div class="trust-card reveal"><div class="icon">📄</div><p>Работаю <b>официально, по договору</b></p></div>
+        <div class="trust-card reveal"><div class="icon">🪵</div><p>Личный опыт в отделке бань — <b>более 10 лет</b></p></div>
+        <div class="trust-card reveal"><div class="icon">🛠️</div><p>Только <b>профессиональный инструмент</b> и проверенные материалы</p></div>
+        <div class="trust-card reveal"><div class="icon">📐</div><p>Работаю по <b>вашему дизайн-проекту</b> или помогу разработать план</p></div>
+        <div class="trust-card reveal"><div class="icon">🚗</div><p><b>Бесплатный выезд</b> на замер и консультация в Омске и области</p></div>
+        <div class="trust-card reveal"><div class="icon">🛡️</div><p>Официальная <b>гарантия — 2 года</b></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Можжевельник -->
+  <section class="juniper" id="juniper">
+    <div class="container">
+      <span class="section-tag reveal">Авторская мастерская</span>
+      <h2 class="section-title reveal">Панно и декор из натурального можжевельника</h2>
+      <p class="section-sub reveal">Авторские изделия из собственной мастерской. Живой аромат и долговечность.</p>
+
+      <div class="juniper-top">
+        <ul class="juniper-facts reveal">
+          <li><span class="ic">💧</span><div><b>Влагостойкость и плотность</b><span>Природные свойства можжевельника — идеален для бань и саун</span></div></li>
+          <li><span class="ic">🌿</span><div><b>Фитонциды и чистый воздух</b><span>Очищает воздух и создаёт здоровую атмосферу в парной</span></div></li>
+          <li><span class="ic">✨</span><div><b>Аромат на годы</b><span>Устойчивый тёплый запах, сохраняющийся годами</span></div></li>
+          <li><span class="ic">🎨</span><div><b>Красивая текстура</b><span>Глубокие природные оттенки и рисунок спилов</span></div></li>
+        </ul>
+        <div class="juniper-photo reveal">
+          <img src="img/panno-led-interior.jpg" alt="Панно из можжевельника с подсветкой в парной">
+        </div>
+      </div>
+
+      <div class="panels-grid">
+        <div class="panel reveal"><img src="img/panno-square.jpg" alt="Прямоугольное панно из можжевельника"><span>Панно на стену</span></div>
+        <div class="panel reveal"><img src="img/panno-bird.jpg" alt="Панно «Птица» из можжевельника"><span>Панно «Птица»</span></div>
+        <div class="panel reveal"><img src="img/panno-wolf.jpg" alt="Панно «Волк» из можжевельника"><span>Панно «Волк»</span></div>
+        <div class="panel reveal"><img src="img/panno-bear.jpg" alt="Панно «Медведь» из можжевельника"><span>Панно «Медведь»</span></div>
+        <div class="panel reveal"><img src="img/panno-leopard.jpg" alt="Панно «Пантера» из можжевельника"><span>Панно «Пантера»</span></div>
+        <div class="panel reveal"><img src="img/panno-mirror.jpg" alt="Зеркало в раме из можжевельника"><span>Зеркало в раме</span></div>
+      </div>
+
+      <div class="offer-line">
+        <div class="juniper-what reveal">
+          <h3>Что предлагаю</h3>
+          <ul>
+            <li>Готовые панно из наличия — выбор размеров и рисунка</li>
+            <li>Изготовление по вашим индивидуальным размерам и эскизам</li>
+            <li>Декор стен, зон отдыха, парных и полная отделка потолка можжевельником</li>
+          </ul>
+        </div>
+        <div class="tech reveal">
+          <h3>Технология</h3>
+          <ul>
+            <li>Отборные ароматные спилы можжевельника разного диаметра</li>
+            <li>Лазерная шлифовка</li>
+            <li>Основание из берёзовой фанеры Экстра-класса без фенола</li>
+            <li>Срок эксплуатации — 10 лет</li>
+            <li>Экологичный термо-влагостойкий клей D3 (Kleiberit, Германия)</li>
+          </ul>
+        </div>
+        <p class="note-important reveal">Любое изделие делаю под заказ — от небольшого панно до цельного можжевелового потолка.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Портфолио -->
+  <section id="portfolio">
     <div class="container">
       <span class="section-tag reveal">Портфолио</span>
       <h2 class="section-title reveal">Наши работы</h2>
-      <p class="section-sub reveal">Фотографии из реальных проектов, без ретуши. Ещё больше фото и видео — в нашем Instagram.</p>
+      <p class="section-sub reveal">Фотографии из реальных проектов, без ретуши. Нажмите на фото, чтобы рассмотреть.</p>
       <div class="gallery-grid">
-        <a href="img/hero-mountains.jpg" class="reveal"><img src="img/hero-mountains.jpg" alt="Панно «Горы и ели» из спилов дерева с подсветкой" loading="lazy"></a>
+        <a href="img/hero-mountains.jpg" class="reveal"><img src="img/hero-mountains.jpg" alt="Панно «Горы и ели» из спилов с подсветкой" loading="lazy"></a>
         <a href="img/blue-led-ceiling.jpg" class="reveal"><img src="img/blue-led-ceiling.jpg" alt="Потолок из спилов с голубой подсветкой" loading="lazy"></a>
         <a href="img/benches-hats.jpg" class="reveal"><img src="img/benches-hats.jpg" alt="Полки из липы с декором из спилов" loading="lazy"></a>
-        <a href="img/lake-window-vertical.jpg" class="reveal"><img src="img/lake-window-vertical.jpg" alt="Сауна с панорамным окном и видом на озеро" loading="lazy"></a>
-        <a href="img/dark-blue-sauna.jpg" class="reveal"><img src="img/dark-blue-sauna.jpg" alt="Тёмная сауна с синей LED-подсветкой" loading="lazy"></a>
-        <a href="img/ceiling-panel.jpg" class="reveal"><img src="img/ceiling-panel.jpg" alt="Световой потолочный короб из спилов дерева" loading="lazy"></a>
-        <a href="img/mountains-vertical.jpg" class="reveal"><img src="img/mountains-vertical.jpg" alt="Декоративное панно с горами и подсветкой" loading="lazy"></a>
+        <a href="img/lake-window-vertical.jpg" class="reveal"><img src="img/lake-window-vertical.jpg" alt="Сауна с панорамным окном на озеро" loading="lazy"></a>
+        <a href="img/dark-blue-sauna.jpg" class="reveal"><img src="img/dark-blue-sauna.jpg" alt="Сауна с синей подсветкой" loading="lazy"></a>
+        <a href="img/ceiling-panel.jpg" class="reveal"><img src="img/ceiling-panel.jpg" alt="Световой короб из спилов на потолке" loading="lazy"></a>
+        <a href="img/panno-mirror-interior.jpg" class="reveal"><img src="img/panno-mirror-interior.jpg" alt="Зеркало из можжевельника в комнате отдыха" loading="lazy"></a>
+        <a href="img/mountains-vertical.jpg" class="reveal"><img src="img/mountains-vertical.jpg" alt="Панно с горами и подсветкой" loading="lazy"></a>
         <a href="img/warm-salt-lamp.jpg" class="reveal"><img src="img/warm-salt-lamp.jpg" alt="Парная с солевым светильником" loading="lazy"></a>
         <a href="img/green-led-stone.jpg" class="reveal"><img src="img/green-led-stone.jpg" alt="Сауна с каменной стеной и зелёной подсветкой" loading="lazy"></a>
-        <a href="img/classic-warm.jpg" class="reveal"><img src="img/classic-warm.jpg" alt="Классическая тёплая парная" loading="lazy"></a>
         <a href="img/warm-wide.jpg" class="reveal"><img src="img/warm-wide.jpg" alt="Просторная парная со световым коробом" loading="lazy"></a>
+        <a href="img/classic-warm.jpg" class="reveal"><img src="img/classic-warm.jpg" alt="Классическая тёплая парная" loading="lazy"></a>
       </div>
     </div>
   </section>
 
-  <!-- Контакты -->
-  <section id="contacts">
+  <!-- 6. Этапы -->
+  <section class="steps" id="steps">
     <div class="container">
-      <div class="contact-wrap reveal">
-        <div class="contact-info">
-          <span class="section-tag">Контакты</span>
-          <h2 class="section-title">Обсудим вашу баню?</h2>
-          <p>Напишите нам в Instagram — обсудим вашу задачу. Там же — больше фото и видео наших работ.</p>
-          <ul class="contact-list">
-            <li>
-              <span class="icon">📍</span>
-              <span>Омск и Омская область</span>
-            </li>
-            <li>
-              <span class="icon">📞</span>
-              <!-- TODO: заменить на реальный номер телефона -->
-              <a href="tel:+79000000000">+7 (900) 000-00-00</a>
-            </li>
-            <li>
-              <span class="icon">📷</span>
-              <a href="https://www.instagram.com/master.banisaun" target="_blank" rel="noopener">@master.banisaun</a>
-            </li>
-          </ul>
-          <a class="btn" href="https://www.instagram.com/master.banisaun" target="_blank" rel="noopener">Написать в Instagram</a>
-        </div>
-        <div class="contact-photo">
-          <img src="img/warm-wide.jpg" alt="Интерьер парной с тёплой подсветкой" loading="lazy">
-        </div>
+      <span class="section-tag reveal">Как проходит работа</span>
+      <h2 class="section-title reveal">От звонка до пара</h2>
+      <div class="steps-grid">
+        <div class="step reveal"><h3>Заявка или звонок</h3><p>Обсуждаем задачу, сроки и материалы.</p></div>
+        <div class="step reveal"><h3>Выезд на замер</h3><p>Бесплатно, в удобное для вас время.</p></div>
+        <div class="step reveal"><h3>Смета и договор</h3><p>Фиксируем точную стоимость и сроки, подписываем документы.</p></div>
+        <div class="step reveal"><h3>Выполнение работ</h3><p>Все этапы отделки делаю лично, с контролем качества на каждом шаге.</p></div>
+        <div class="step reveal"><h3>Сдача объекта</h3><p>Подписываем акт, предоставляю гарантию 2 года.</p></div>
       </div>
     </div>
   </section>
 
+  <!-- 7. Отзывы -->
+  <section id="reviews">
+    <div class="container">
+      <span class="section-tag reveal" style="display:block;text-align:center">Отзывы</span>
+      <p class="reviews-quote reveal">Банька, построенная <span>с душой</span> — залог хорошего пара</p>
+      <div class="reviews-grid">
+        <!-- TODO: заменить плейсхолдеры на реальные скриншоты отзывов с Авито -->
+        <div class="review-ph reveal"><div class="stars">★★★★★</div><p>Здесь появится реальный отзыв клиента с Авито.</p><small>Отзыв с Авито</small></div>
+        <div class="review-ph reveal"><div class="stars">★★★★★</div><p>Здесь появится реальный отзыв клиента с Авито.</p><small>Отзыв с Авито</small></div>
+        <div class="review-ph reveal"><div class="stars">★★★★★</div><p>Здесь появится реальный отзыв клиента с Авито.</p><small>Отзыв с Авито</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Контакты -->
+  <section class="contacts" id="contacts">
+    <div class="container">
+      <div class="contact-wrap">
+        <div class="contact-info reveal">
+          <span class="section-tag">Контакты</span>
+          <h2 class="section-title">Свяжитесь со мной</h2>
+          <p class="section-sub" style="margin-bottom:0">Выезжаю по всему региону — Омск и Омская область. Оставьте заявку или позвоните, отвечу и помогу с расчётом.</p>
+          <ul class="contact-list">
+            <li><span class="icon">📍</span><span>Омск и Омская область</span></li>
+            <!-- TODO: заменить на реальный номер телефона -->
+            <li><span class="icon">📞</span><a href="tel:+79000000000">+7 (900) 000-00-00</a></li>
+            <li><span class="icon">📷</span><a href="https://www.instagram.com/master.banisaun" target="_blank" rel="noopener">@master.banisaun</a></li>
+          </ul>
+          <div class="contact-actions">
+            <a class="btn" href="tel:+79000000000">Позвонить</a>
+            <!-- TODO: вставить ссылку на профиль Авито -->
+            <a class="btn btn-green" href="#" target="_blank" rel="noopener">Связаться на Авито</a>
+          </div>
+        </div>
+
+        <form class="lead-form reveal" id="leadForm">
+          <h3>Оставьте заявку на бесплатный замер</h3>
+          <p class="fp">…и консультацию. Перезвоню в удобное время.</p>
+          <div class="field">
+            <label for="name">Имя</label>
+            <input type="text" id="name" name="name" placeholder="Как к вам обращаться" required>
+          </div>
+          <div class="field">
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+          </div>
+          <div class="field">
+            <label>Что интересует</label>
+            <div class="choice">
+              <label><input type="radio" name="interest" value="Отделка" checked><span>Отделка бани</span></label>
+              <label><input type="radio" name="interest" value="Панно"><span>Панно из можжевельника</span></label>
+            </div>
+          </div>
+          <button type="submit" class="btn">Отправить</button>
+          <div class="form-ok" id="formOk">Спасибо! Заявка отправлена — я свяжусь с вами в ближайшее время.</div>
+          <p class="privacy">Нажимая «Отправить», вы соглашаетесь на обработку персональных данных.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Футер -->
   <footer>
-    <div class="container footer-inner">
-      <span>© 2026 Мастер Бань, Омск</span>
-      <span>Бани и сауны · все фото на сайте — наши работы</span>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="img/logo-master-ban.png" alt="Логотип Мастер Бань">
+          <div>
+            <b>МАСТЕР<span>БАНЬ</span></b>
+            <p>Отделка бань под ключ · панно из можжевельника · Омск и область</p>
+          </div>
+        </div>
+        <div class="footer-actions">
+          <a class="btn" href="tel:+79000000000">Позвонить</a>
+          <a class="btn btn-green" href="#" target="_blank" rel="noopener">Связаться на Авито</a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 Мастер Бань, Омск. Отделка бань и саун под ключ.</p>
     </div>
   </footer>
 
-  <div class="lightbox" id="lightbox">
-    <img src="" alt="Просмотр фотографии">
-  </div>
+  <div class="lightbox" id="lightbox"><img src="" alt="Просмотр фотографии"></div>
 
   <script>
     // Мобильное меню
@@ -522,29 +701,29 @@
     burger.addEventListener('click', () => nav.classList.toggle('open'));
     nav.addEventListener('click', () => nav.classList.remove('open'));
 
-    // Лайтбокс галереи
+    // Лайтбокс (галерея + панно)
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = lightbox.querySelector('img');
     document.querySelectorAll('.gallery-grid a').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        lightboxImg.src = link.href;
-        lightbox.classList.add('open');
-      });
+      link.addEventListener('click', e => { e.preventDefault(); lightboxImg.src = link.href; lightbox.classList.add('open'); });
+    });
+    document.querySelectorAll('.panel').forEach(p => {
+      p.addEventListener('click', () => { lightboxImg.src = p.querySelector('img').src; lightbox.classList.add('open'); });
     });
     lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') lightbox.classList.remove('open');
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+
+    // Форма заявки (демо: показываем подтверждение; приём заявок подключается отдельно)
+    const form = document.getElementById('leadForm');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      document.getElementById('formOk').classList.add('show');
+      form.querySelector('button').textContent = 'Отправлено';
     });
 
     // Появление блоков при скролле
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
