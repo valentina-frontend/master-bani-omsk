@@ -173,7 +173,7 @@
 
     /* ---------- 2. Услуги (карточки-якоря) ---------- */
     .services { background: var(--bg-soft); }
-    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 34px; align-items: start; }
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 34px; align-items: stretch; }
     .service {
       border-radius: var(--radius); overflow: hidden;
       display: flex; flex-direction: column;
@@ -182,8 +182,11 @@
       transition: border-color .25s, transform .25s;
     }
     .service:hover { transform: translateY(-4px); border-color: rgba(232,163,61,.4); }
-    .service img { width: 100%; height: auto; display: block; background: #14100c; }
-    .service-body { padding: 30px; }
+    /* Зона фото фикс. высоты: фото целиком (contain), поля заполнены размытым фоном того же фото */
+    .service-photo { position: relative; height: 440px; overflow: hidden; background: #14100c; flex: none; }
+    .service-photo .ph-blur { position: absolute; inset: 0; background-size: cover; background-position: center; filter: blur(26px) brightness(.5); transform: scale(1.2); }
+    .service-photo img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: contain; display: block; }
+    .service-body { padding: 30px; flex: 1 1 auto; }
     .service-body .num { font-family: var(--font-head); color: var(--amber); font-size: 14px; letter-spacing: 2px; }
     .service h3 { font-size: 22px; font-weight: 600; margin: 8px 0 10px; }
     .service p { color: #d4c7b4; font-size: 15px; }
@@ -302,8 +305,10 @@
     .review-card:hover { transform: translateY(-4px); border-color: rgba(232,163,61,.4); }
     .review-card .stars { color: var(--amber); font-size: 17px; letter-spacing: 2px; }
     .review-card .review-text { color: #e4d9c8; font-size: 15px; line-height: 1.55; }
-    .review-card .review-author { display: flex; justify-content: space-between; align-items: center; margin-top: auto; gap: 10px; }
+    .review-card .review-author { display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto; gap: 10px; }
+    .review-card .ra-who { display: flex; flex-direction: column; }
     .review-card .ra-name { font-weight: 700; font-size: 14px; }
+    .review-card .ra-date { color: var(--muted); font-size: 12px; }
     .review-card .ra-src { color: var(--amber-soft); font-size: 13px; font-weight: 600; white-space: nowrap; }
 
     .reviews-cta {
@@ -411,6 +416,9 @@
       .gallery-grid { columns: 1; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
       .service-body { padding: 22px 24px 26px; }
+      .service-photo { height: auto; }
+      .service-photo img { height: auto; }
+      .service-photo .ph-blur { display: none; }
     }
   </style>
 </head>
@@ -471,7 +479,7 @@
       <h2 class="section-title reveal">Два направления работы</h2>
       <div class="services-grid">
         <a class="service reveal" href="#otdelka">
-          <img src="img/classic-warm.jpg" alt="Отделанная деревом парная">
+          <div class="service-photo"><span class="ph-blur" style="background-image:url('img/classic-warm.jpg')"></span><img src="img/classic-warm.jpg" alt="Отделанная деревом парная"></div>
           <div class="service-body">
             <div class="num">01</div>
             <h3>Отделка бани и сауны под ключ</h3>
@@ -480,7 +488,7 @@
           </div>
         </a>
         <a class="service reveal" href="#juniper">
-          <img src="img/panno-led-interior.jpg" alt="Панно из можжевельника с подсветкой">
+          <div class="service-photo"><span class="ph-blur" style="background-image:url('img/panno-led-interior.jpg')"></span><img src="img/panno-led-interior.jpg" alt="Панно из можжевельника с подсветкой"></div>
           <div class="service-body">
             <div class="num">02</div>
             <h3>Панно и декор из можжевельника</h3>
@@ -667,22 +675,21 @@
     <div class="container">
       <span class="section-tag reveal" style="display:block;text-align:center">Отзывы</span>
       <p class="reviews-quote reveal">Банька, построенная <span>с душой</span> — залог хорошего пара</p>
-      <!-- Тексты отзывов — заглушки, заменить на реальные с Авито (см. ra-name и review-text) -->
       <div class="reviews-grid">
         <a class="review-card reveal" href="https://www.avito.ru/brands/i4124212/all/predlozheniya_uslug?gdlkerfdnwq=101&amp;page_from=from_item_card&amp;iid=1109143507&amp;sellerId=be41b1bc93841b53e5cdce23c71228ff" target="_blank" rel="noopener">
           <div class="stars">★★★★★</div>
-          <p class="review-text">Реальный отзыв клиента с Авито — вставлю сюда текст.</p>
-          <div class="review-author"><span class="ra-name">Имя клиента</span><span class="ra-src">Отзыв на Авито →</span></div>
+          <p class="review-text">Мастер своего дела на 100%. Человек вежливый, пунктуальный, работу по отделке парилки выполнил в установленные сроки. Парилка получилась просто изумительная. Константин, спасибо огромное за честность!</p>
+          <div class="review-author"><span class="ra-who"><span class="ra-name">Илья</span><span class="ra-date">14 ноября 2021</span></span><span class="ra-src">Авито →</span></div>
         </a>
         <a class="review-card reveal" href="https://www.avito.ru/brands/i4124212/all/predlozheniya_uslug?gdlkerfdnwq=101&amp;page_from=from_item_card&amp;iid=1109143507&amp;sellerId=be41b1bc93841b53e5cdce23c71228ff" target="_blank" rel="noopener">
           <div class="stars">★★★★★</div>
-          <p class="review-text">Реальный отзыв клиента с Авито — вставлю сюда текст.</p>
-          <div class="review-author"><span class="ra-name">Имя клиента</span><span class="ra-src">Отзыв на Авито →</span></div>
+          <p class="review-text">Константин профессионально, с дизайнерским подходом выполнил реставрацию парной и комнаты отдыха. Все работы «под ключ» выполнены в договорные сроки. Очень рекомендую данного мастера!</p>
+          <div class="review-author"><span class="ra-who"><span class="ra-name">Сергей</span><span class="ra-date">27 июля 2023</span></span><span class="ra-src">Авито →</span></div>
         </a>
         <a class="review-card reveal" href="https://www.avito.ru/brands/i4124212/all/predlozheniya_uslug?gdlkerfdnwq=101&amp;page_from=from_item_card&amp;iid=1109143507&amp;sellerId=be41b1bc93841b53e5cdce23c71228ff" target="_blank" rel="noopener">
           <div class="stars">★★★★★</div>
-          <p class="review-text">Реальный отзыв клиента с Авито — вставлю сюда текст.</p>
-          <div class="review-author"><span class="ra-name">Имя клиента</span><span class="ra-src">Отзыв на Авито →</span></div>
+          <p class="review-text">Прекрасный мастер своего дела. Расчёт и закупку материала Константин производил сам, после полного согласования дизайна. Всё чётко и по делу, получил очень много полезных советов. Рекомендую однозначно!</p>
+          <div class="review-author"><span class="ra-who"><span class="ra-name">Евгений</span><span class="ra-date">24 марта 2025</span></span><span class="ra-src">Авито →</span></div>
         </a>
       </div>
       <div class="reviews-cta reveal">
