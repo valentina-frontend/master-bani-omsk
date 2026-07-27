@@ -173,18 +173,16 @@
 
     /* ---------- 2. Услуги (карточки-якоря) ---------- */
     .services { background: var(--bg-soft); }
-    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 34px; }
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 34px; align-items: start; }
     .service {
-      position: relative; border-radius: var(--radius); overflow: hidden;
-      min-height: 380px; display: flex; align-items: flex-end; isolation: isolate;
+      border-radius: var(--radius); overflow: hidden;
+      display: flex; flex-direction: column;
+      background: var(--card); border: 1px solid rgba(232,163,61,.14);
       text-decoration: none; color: var(--text);
+      transition: border-color .25s, transform .25s;
     }
-    .service img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; transition: transform .5s; }
-    .service:hover img { transform: scale(1.06); }
-    .service::before {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(12,9,5,.95) 12%, rgba(12,9,5,.15) 62%); z-index: -1;
-    }
+    .service:hover { transform: translateY(-4px); border-color: rgba(232,163,61,.4); }
+    .service img { width: 100%; height: auto; display: block; background: #14100c; }
     .service-body { padding: 30px; }
     .service-body .num { font-family: var(--font-head); color: var(--amber); font-size: 14px; letter-spacing: 2px; }
     .service h3 { font-size: 22px; font-weight: 600; margin: 8px 0 10px; }
@@ -399,10 +397,6 @@
       .checklist { grid-template-columns: 1fr; }
       .gallery-grid { columns: 1; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
-      /* Карточки услуг: фото сверху, текст под ним (без наложения на фото) */
-      .service { min-height: 0; flex-direction: column; align-items: stretch; background: var(--card); border: 1px solid rgba(232,163,61,.14); }
-      .service img { position: static; width: 100%; height: auto; object-fit: contain; z-index: 0; }
-      .service::before { display: none; }
       .service-body { padding: 22px 24px 26px; }
     }
   </style>
