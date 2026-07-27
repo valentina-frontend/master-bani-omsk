@@ -256,8 +256,9 @@
     .panel:hover img { transform: scale(1.05); }
     .panel span { text-align: center; padding: 4px 8px 12px; font-size: 13px; color: #4a3d2c; font-weight: 600; }
 
-    .offer-line { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-    .juniper-what h3 { font-size: 18px; margin-bottom: 14px; }
+    .offer-line { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
+    .juniper-what { background: var(--card); border: 1px solid rgba(154,197,74,.18); border-radius: var(--radius); padding: 28px; }
+    .juniper-what h3 { font-size: 18px; margin-bottom: 16px; }
     .juniper-what ul { list-style: none; display: grid; gap: 10px; }
     .juniper-what li { display: flex; gap: 10px; font-size: 15px; color: #e4d9c8; }
     .juniper-what li::before { content: '›'; color: var(--green); font-weight: 700; }
@@ -399,6 +400,11 @@
       .checklist { grid-template-columns: 1fr; }
       .gallery-grid { columns: 1; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
+      /* Карточки услуг: фото сверху, текст под ним (без наложения на фото) */
+      .service { min-height: 0; flex-direction: column; align-items: stretch; background: var(--card); border: 1px solid rgba(232,163,61,.14); }
+      .service img { position: static; width: 100%; height: 220px; object-fit: cover; z-index: 0; }
+      .service::before { display: none; }
+      .service-body { padding: 22px 24px 26px; }
     }
   </style>
 </head>
@@ -548,6 +554,14 @@
         <div class="trust-card reveal">
           <div class="icon"><svg viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
           <p>Официальная <b>гарантия — 2 года</b></p>
+        </div>
+        <div class="trust-card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M19.44 7.85c-.05.32.06.65.29.88l1.56 1.57c.47.47.71 1.08.71 1.7s-.24 1.23-.71 1.7l-1.6 1.61a.98.98 0 0 1-.84.28c-.47-.07-.8-.48-.97-.93a2.5 2.5 0 1 0-3.21 3.22c.45.16.86.5.93.96a.98.98 0 0 1-.28.84l-1.61 1.61c-.47.47-1.08.71-1.7.71s-1.23-.24-1.7-.71l-1.57-1.57a1.03 1.03 0 0 0-.88-.29c-.49.07-.84.5-1.02.97a2.5 2.5 0 1 1-3.24-3.24c.46-.18.9-.53.97-1.02a1.03 1.03 0 0 0-.29-.88l-1.57-1.57C2.24 13.46 2 12.85 2 12.23s.24-1.23.71-1.7l1.61-1.61a.98.98 0 0 1 .84-.28c.47.07.8.48.97.93a2.5 2.5 0 1 0 3.21-3.22c-.45-.16-.86-.5-.93-.96a.98.98 0 0 1 .28-.84l1.61-1.61C11.77 2.24 12.38 2 13 2"/></svg></div>
+          <p><b>Реализую нестандартные проекты</b> и задачи любой сложности</p>
+        </div>
+        <div class="trust-card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <p>Выполняю работу <b>в чётко поставленные сроки</b></p>
         </div>
       </div>
     </div>
