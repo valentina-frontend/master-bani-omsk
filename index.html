@@ -717,9 +717,13 @@
           </div>
         </div>
 
-        <form class="lead-form reveal" id="leadForm">
+        <form class="lead-form reveal" id="leadForm" action="https://formsubmit.co/ivkos1985@yandex.ru" method="POST">
           <h3>Оставьте заявку на бесплатный замер</h3>
           <p class="fp">…и консультацию. Перезвоню в удобное время.</p>
+          <input type="hidden" name="_subject" value="Новая заявка с сайта — Мастер Бань">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
           <div class="field">
             <label for="name">Имя</label>
             <input type="text" id="name" name="name" placeholder="Как к вам обращаться" required>
@@ -784,12 +788,38 @@
     lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
 
-    // Форма заявки (демо: показываем подтверждение; приём заявок подключается отдельно)
+    // Форма заявки — отправка на почту через FormSubmit (без сервера)
     const form = document.getElementById('leadForm');
-    form.addEventListener('submit', e => {
+    const okMsg = document.getElementById('formOk');
+    form.addEventListener('submit', async e => {
       e.preventDefault();
-      document.getElementById('formOk').classList.add('show');
-      form.querySelector('button').textContent = 'Отправлено';
+      const btn = form.querySelector('button[type="submit"]');
+      const original = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Отправляем…';
+      try {
+        const res = await fetch('https://formsubmit.co/ajax/ivkos1985@yandex.ru', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && String(data.success) === 'true') {
+          okMsg.textContent = 'Спасибо! Заявка отправлена — я свяжусь с вами в ближайшее время.';
+          okMsg.style.color = 'var(--green)';
+          okMsg.classList.add('show');
+          form.reset();
+          btn.textContent = 'Отправлено';
+        } else {
+          throw new Error('not ok');
+        }
+      } catch (err) {
+        okMsg.textContent = 'Не получилось отправить. Позвоните, пожалуйста: +7 (904) 587-28-97';
+        okMsg.style.color = 'var(--amber-soft)';
+        okMsg.classList.add('show');
+        btn.disabled = false;
+        btn.textContent = original;
+      }
     });
 
     // Появление блоков при скролле
